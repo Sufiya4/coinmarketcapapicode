@@ -1,6 +1,6 @@
 import requests
 from requests import Session
-import secrets
+import key
 from pprint import pprint
 
 #https://coinmarketcap.com/api/documentation/v1/
@@ -10,7 +10,7 @@ url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/map'
 
 headers = {
   'Accepts': 'application/json',
-  'X-CMC_PRO_API_KEY': secrets.api_key,
+  'X-CMC_PRO_API_KEY': key.api_key,
 }
 
 #testing
@@ -40,6 +40,6 @@ class CMC:
         data = r.json()['data']
         return data
 
-cmc = CMC(secrets.api_key)
+cmc = CMC(key.api_key)
 
 pprint(cmc.get_meta_data('bitcoin'))
